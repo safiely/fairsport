@@ -16,7 +16,8 @@
 				</div>
 				<div class="form-group">
 					<label for="inputContent"><b>Write Content</b></label>
-					<textarea id="textarea-newpost" name="content"></textarea>
+                    <textarea id="textarea-newpost" name="content"></textarea>
+                    <input name="image" type="file" id="upload" style="display:none" onchange="">
                 </div>
                 <div class="form-group">
 					<label for="uploadImage"><b>Upload Featured Image</b></label>
