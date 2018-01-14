@@ -52,9 +52,10 @@ class User extends CI_Controller {
 					'user_created' => date('Y-m-d H:i:s'),
 				);
 				$res = $this->m_user->register($data, 'users');
-	
-				if($res){
+				if($res === true){
 					redirect('/login', 'refresh');
+				}else if($res === 'duplicated'){
+					echo "<script> alert('Already registerd! Please login.');document.location='" . base_url() . "login'</script>";
 				}else{
 					echo "<script> alert('Signup failed!');document.location='" . base_url() . "signup'</script>";
 				}
