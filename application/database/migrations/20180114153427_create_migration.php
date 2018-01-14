@@ -46,7 +46,7 @@ class Migration_Create_Migration extends CI_Migration {
                                 'type' => 'VARCHAR',
                                 'constraint' => '5',
                         ),
-                        'comm_approve' => array(
+                        'comm_approved' => array(
                                 'type' => 'BOOLEAN',
                         ),
                         'comm_created' => array(
@@ -73,6 +73,9 @@ class Migration_Create_Migration extends CI_Migration {
                         'post_img' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
+                        ),
+                        'post_approved' => array(
+                                'type' => 'BOOLEAN',
                         ),
                         'post_createdby' => array(
                                 'type' => 'VARCHAR',
@@ -151,5 +154,14 @@ class Migration_Create_Migration extends CI_Migration {
                 ));
                 $this->dbforge->add_key('user_id', TRUE);
                 $this->dbforge->create_table('users');
+        }
+
+        public function down()
+        {
+                $this->dbforge->drop_table('categories',TRUE);
+                $this->dbforge->drop_table('comments',TRUE);
+                $this->dbforge->drop_table('posts',TRUE);
+                $this->dbforge->drop_table('post_categories',TRUE);
+                $this->dbforge->drop_table('users',TRUE);
         }
 }

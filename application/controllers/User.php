@@ -78,11 +78,13 @@ class User extends CI_Controller {
 		$is_match = $this->pass_verify($password, $res[0]->user_pass);
 		if($is_match){
 			$session_data = array(
+				'id' => $res[0]->user_id,
 				'email' => $res[0]->user_email,
 				'name' => $res[0]->user_name,
 				'avatar' => $res[0]->user_avatar,
 				'type' => $res[0]->user_type,
 			);
+
 			// Add user data in session
 			$this->session->set_userdata('logged_in', $session_data);
 			redirect('/', 'refresh');

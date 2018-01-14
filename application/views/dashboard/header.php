@@ -41,14 +41,17 @@
 					</a>
 					<ul class="sidenav-second-level collapse" id="collapseComponents">
 						<li>
-							<a href="#">New Post</a>
-						</li>
+							<a href="<?php echo base_url();?>dashboard/post">New Post</a>
+                        </li>
+                        <?php 
+                        if($_SESSION['logged_in']['type'] === 'admin'){ ?>
 						<li>
 							<a href="#">All Post</a>
+                        </li>
+                        <?php } ?>
+						<li>
+							<a href="#">My Post</a>
 						</li>
-						<!-- <li>
-							<a href="#">Category</a>
-						</li> -->
 					</ul>
 				</li>
 				<?php 
