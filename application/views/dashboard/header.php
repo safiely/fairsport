@@ -46,24 +46,24 @@
                         <?php 
                         if($_SESSION['logged_in']['type'] === 'admin'){ ?>
 						<li>
-							<a href="#">All Post</a>
+							<a href="<?php echo base_url();?>dashboard/allpost">All Post</a>
                         </li>
                         <?php } ?>
 						<li>
-							<a href="#">My Post</a>
+							<a href="<?php echo base_url();?>dashboard/mypost">My Post</a>
 						</li>
 					</ul>
 				</li>
 				<?php 
                     if($_SESSION['logged_in']['type'] === 'admin'){ ?>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-					<a class="nav-link" href="#">
+					<a class="nav-link" href="<?php echo base_url();?>dashboard/users">
 						<i class="fa fa-fw fa-users"></i>
 						<span class="nav-link-text">Users</span>
 					</a>
 				</li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-					<a class="nav-link" href="#">
+					<a class="nav-link" href="<?php echo base_url();?>dashboard/comments">
 						<i class="fa fa-fw fa-comments"></i>
 						<span class="nav-link-text">Comments</span>
 					</a>

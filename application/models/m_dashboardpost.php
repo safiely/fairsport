@@ -13,5 +13,10 @@ class m_dashboardpost extends CI_Model {
         $res = $this->db->insert($table, $data);
         return $res;
     }
+
+    public function allpost(){
+        $sql = $this->db->query('select * from posts');
+		return $sql;
+    }
     
 }

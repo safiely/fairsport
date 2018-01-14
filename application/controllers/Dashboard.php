@@ -32,6 +32,47 @@ class Dashboard extends MY_Controller {
 		}
 	}
 
+	public function allpost(){
+		if($this->logged_in()){
+			$data['sql']= $this->m_dashboardpost->allpost();
+			$this->load->view('dashboard/header');
+			$this->load->view('dashboard/pages/allpost', $data);
+			$this->load->view('dashboard/footer');
+		}else{
+			redirect('/login', 'refresh');
+		}
+	}
+
+	public function mypost(){
+		if($this->logged_in()){
+			$this->load->view('dashboard/header');
+			$this->load->view('dashboard/pages/mypost');
+			$this->load->view('dashboard/footer');
+		}else{
+			redirect('/login', 'refresh');
+		}
+	}
+
+	public function users(){
+		if($this->logged_in()){
+			$this->load->view('dashboard/header');
+			$this->load->view('dashboard/pages/users');
+			$this->load->view('dashboard/footer');
+		}else{
+			redirect('/login', 'refresh');
+		}
+	}
+
+	public function comments(){
+		if($this->logged_in()){
+			$this->load->view('dashboard/header');
+			$this->load->view('dashboard/pages/comments');
+			$this->load->view('dashboard/footer');
+		}else{
+			redirect('/login', 'refresh');
+		}
+	}
+
 	public function addpost(){
 		if($this->logged_in()){
 			$title = $this->input->post('title');
@@ -81,5 +122,6 @@ class Dashboard extends MY_Controller {
 			redirect('/dashboard', 'refresh');
 		}
 	}
+
 
 }
