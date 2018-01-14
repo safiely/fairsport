@@ -14,6 +14,10 @@ body {
   }
 }
 
+.error {
+  color: #C00;
+}
+
 .carousel-item {
   height: 65vh;
   min-height: 300px;
@@ -29,19 +33,32 @@ body {
 }
 
 #login-panel{
-  margin-top: 50%;
-  margin-bottom: 50%;
+  margin-top: 20%;
+  margin-bottom: 20%;
 }
 
 #login-panel > .card-header {
   text-align: center;
-  background-color: #ca0155;
+  background-color: #2241f0;
   color: white;
   font-size: 24px;
   font-weight: 600;
   line-height: 28px;
   letter-spacing: 1px;
 }
-#login-panel > .card-footer {
-  font-size: 12px;
+
+
+#signup-panel{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+#signup-panel > .card-header {
+  text-align: center;
+  background-color: #2241f0;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 1px;
 }

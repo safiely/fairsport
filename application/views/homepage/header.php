@@ -22,7 +22,7 @@
 	<!-- Navigation -->
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Fairsport</a>
+			<a class="navbar-brand" href="<?php echo base_url();?>">Fairsport</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -32,9 +32,20 @@
 					<li class="nav-item">
 						<a class="nav-link" href="contact.html">About</a>
 					</li>
+					<?php if(isset($_SESSION['logged_in'])){ ?>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url()?>user/login">Login</a>
+						<a class="nav-link" href="<?php echo base_url()?>dashboard">Dashboard</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url()?>logout">Logout</a>
+					</li>
+					<?php
+					}else{
+					?>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url()?>login">Login</a>
+					</li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
