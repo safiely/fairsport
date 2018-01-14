@@ -33,12 +33,27 @@
 <script src="<?php echo base_url();?>assets/vendor//bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="<?php echo base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+<script src="<?php echo base_url();?>assets/vendor/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/tinymce/js/tinymce/plugins/code/plugin.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/tinymce/js/tinymce/plugins/image/plugin.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="<?php echo base_url();?>assets/js/fairsport-admin.min.js"></script>
+
+<script>
+tinymce.init({
+    selector:'#textarea-newpost',
+    toolbar: [
+        'bold | italic | underline | strikethrough | alignleft | aligncenter | alignright | alignjustify | outdent | indent | blockquote | undo | redo | removeformat | subscript | superscript ', 
+        'formatselect | fontselect | fontsizeselect | link image | cut | copy | paste | bullist | numlist | code',
+    ],
+    menubar: false,
+    height: 300,
+    plugins: 'code link image'
+});
+</script>
 <!-- Custom scripts for this page-->
 <!-- <script src="js/sb-admin-datatables.min.js"></script>
-        <script src="js/sb-admin-charts.min.js"></script> -->
+<script src="js/sb-admin-charts.min.js"></script> -->
 </div>
 </body>
 

@@ -17,7 +17,16 @@ class Dashboard extends MY_Controller {
 		}else{
 			redirect('/login', 'refresh');
 		}
-		
+	}
+
+	public function newpost(){
+		if($this->logged_in()){
+			$this->load->view('dashboard/header');
+			$this->load->view('dashboard/pages/newpost');
+			$this->load->view('dashboard/footer');
+		}else{
+			redirect('/login', 'refresh');
+		}
 	}
 
 }

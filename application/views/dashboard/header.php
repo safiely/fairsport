@@ -46,11 +46,13 @@
 						<li>
 							<a href="#">All Post</a>
 						</li>
-						<li>
+						<!-- <li>
 							<a href="#">Category</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
+				<?php 
+                    if($_SESSION['logged_in']['type'] === 'admin'){ ?>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
 					<a class="nav-link" href="#">
 						<i class="fa fa-fw fa-users"></i>
@@ -63,7 +65,7 @@
 						<span class="nav-link-text">Comments</span>
 					</a>
 				</li>
-
+				<?php } ?>
 			</ul>
 			<ul class="navbar-nav sidenav-toggler">
 				<li class="nav-item">

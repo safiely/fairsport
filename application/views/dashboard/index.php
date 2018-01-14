@@ -5,7 +5,9 @@
 			<a href="#">Dashboard</a>
 		</li>
 		<li class="breadcrumb-item active">My Dashboard</li>
-	</ol>
+    </ol>
+    <?php 
+        if($_SESSION['logged_in']['type'] === 'admin'){ ?>
 	<!-- Icon Cards-->
 	<div class="row">
 		<div class="col-xl-3 col-sm-6 mb-3">
@@ -72,6 +74,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+    </div>
+    <?php } ?>
 </div>
 <!-- /.container-fluid-->
