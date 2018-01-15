@@ -23,4 +23,19 @@ class Homepage extends CI_Controller {
 		$this->load->view('homepage/login');
 		$this->load->view('homepage/footer');
 	}
+
+	public function detail($id = null){
+		if($id=="" || $id == null){
+			redirect('/', 'refresh');
+		}else{
+			$where = array(
+				'post_id' => $id,
+			);
+			$data['sql'] = $this->m_dashboardpost->singlepostdetail($where, 'posts');
+			$this->load->view('homepage/header');
+			$this->load->view('homepage/single', $data);
+			$this->load->view('homepage/footer');
+		}
+		
+	}
 }
