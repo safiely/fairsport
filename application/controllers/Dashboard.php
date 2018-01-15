@@ -94,7 +94,6 @@ class Dashboard extends MY_Controller {
 				$this->load->library('upload', $config);
 				if($this->upload->do_upload('featuredimage'))
 				{
-					// $data = array('upload_data' => $this->upload->data());
 					$data = array(
 						'post_title' => $title,
 						'post_desc' => $content,
@@ -171,6 +170,7 @@ class Dashboard extends MY_Controller {
 			$content = $this->input->post('content');
 			$currentimg = $this->input->post('currentimg');
 			$currentimg2 = $this->input->post('currentimg2');
+			$approved = $this->input->post('approved');
 
 			$config = array(
 				'upload_path' => "./uploads/",
@@ -191,92 +191,62 @@ class Dashboard extends MY_Controller {
 				$this->load->library('upload', $config);
 				if($this->upload->do_upload('newfeaturedimg'))
 				{
-					// $data = array('upload_data' => $this->upload->data());
+					// if newfeaturedimg not empty it means uploading new image;
+
 					$filepath = './uploads/';
 					$filename = $filepath.$currentimg;
-					if($currentimg == "" || $currentimg == null){
-						$data = array(
-							'post_title' => $title,
-							'post_desc' => $content,
-							'post_img' => $this->upload->data('file_name'),
-							'post_approved' => false,
-							'post_modified' => date('Y-m-d H:i:s'),
-							'post_modifiedby' => $_SESSION['logged_in']['id'],
-						);
-					}else{
-						if (file_exists($filename))
-						{
-							unlink($filename);
-						}
-						$data = array(
-							'post_title' => $title,
-							'post_desc' => $content,
-							'post_img' => $this->upload->data('file_name'),
-							'post_approved' => false,
-							'post_modified' => date('Y-m-d H:i:s'),
-							'post_modifiedby' => $_SESSION['logged_in']['id'],
-						);
-					}
-				
-					
+
+					$data = array(
+						'post_title' => $title,
+						'post_desc' => $content,
+						'post_img' => $this->upload->data('file_name'),
+						'post_approved' => $approved,
+						'post_modified' => date('Y-m-d H:i:s'),
+						'post_modifiedby' => $_SESSION['logged_in']['id'],
+					);
+	
+					// echo "upload new image";
 					// var_dump($data);
 
 					$this->updatepost_save($where, $data);
 				}else{
 					$filepath = './uploads/';
 					$filename = $filepath.$currentimg2;
+					$data = array(
+						'post_title' => $title,
+						'post_desc' => $content,
+						'post_img' => $currentimg,
+						'post_approved' => $approved,
+						'post_modified' => date('Y-m-d H:i:s'),
+						'post_modifiedby' => $_SESSION['logged_in']['id'],
+					);
 
-					if($currentimg2 == "" || $currentimg2 == null){
-						$data = array(
-							'post_title' => $title,
-							'post_desc' => $content,
-							'post_img' => $currentimg,
-							'post_approved' => false,
-							'post_modified' => date('Y-m-d H:i:s'),
-							'post_modifiedby' => $_SESSION['logged_in']['id'],
-						);
-						$this->updatepost_save($where, $data);
+					if($currentimg == "" || $currentimg == null){
+						// Check post currentimg if empty it means feautured image removed
+						
+
+						// var_dump($filename);
+						// var_dump($currentimg2);
+						if($currentimg2 == "" || $currentimg2 == null){
+							// condition to check if currentimg2 from db is null not try to find and delete file
+							// echo "<script>alert('not try deleting')</script>";
+							// var_dump($data);
+							$this->updatepost_save($where, $data);
+						}else{
+							// condition to check if currentimg2 from db is not empty
+							// new removed from dashboard try to find and delete file
+
+							// echo "<script>alert('try deleting')</script>";
+							//var_dump($data);
+							if (file_exists($filename))
+							{
+								unlink($filename);
+							}
+							$this->updatepost_save($where, $data);
+						}					
 					}else{
-						if (file_exists($filename))
-						{
-							unlink($filename);
-						}
-						$data = array(
-							'post_title' => $title,
-							'post_desc' => $content,
-							'post_img' => $currentimg2,
-							'post_approved' => false,
-							'post_modified' => date('Y-m-d H:i:s'),
-							'post_modifiedby' => $_SESSION['logged_in']['id'],
-						);
 						$this->updatepost_save($where, $data);
 					}
-					// if ((file_exists($filename)) && ($currentimg2 != null) )
-					// {
-					// 	unlink($filename);
-					// }
-
-					// if($currentimg == null){
-					// 	$data = array(
-					// 		'post_title' => $title,
-					// 		'post_desc' => $content,
-					// 		'post_img' => $currentimg,
-					// 		'post_approved' => false,
-					// 		'post_modified' => date('Y-m-d H:i:s'),
-					// 		'post_modifiedby' => $_SESSION['logged_in']['id'],
-					// 	);
-					// 	$this->updatepost_save($where, $data);
-					// }else{
-					// 	$data = array(
-					// 		'post_title' => $title,
-					// 		'post_desc' => $content,
-					// 		'post_img' => $currentimg2,
-					// 		'post_approved' => false,
-					// 		'post_modified' => date('Y-m-d H:i:s'),
-					// 		'post_modifiedby' => $_SESSION['logged_in']['id'],
-					// 	);
-					// 	$this->updatepost_save($where, $data);
-					// }
 				}
 			}
 		}else{
