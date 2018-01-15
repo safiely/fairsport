@@ -9,9 +9,11 @@
 	<meta name="author" content="fairsport">
 
 	<title>Fairsport - Always New</title>
-
+	<link rel="shortcut icon" type="image/png" href="<?php echo base_url();?>assets/img/favicon.png"/>
 	<!-- Bootstrap core CSS -->
 	<link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="<?php echo base_url();?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<!-- Custom styles -->
 	<link href="<?php echo base_url();?>assets/css/fairsport-style.css" rel="stylesheet">
@@ -22,7 +24,7 @@
 	<!-- Navigation -->
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="<?php echo base_url();?>">Fairsport</a>
+			<a class="navbar-brand" href="<?php echo base_url();?>"><i class="fa fa-futbol-o" aria-hidden="true"></i> Fairsport</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
