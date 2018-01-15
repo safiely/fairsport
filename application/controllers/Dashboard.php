@@ -7,6 +7,7 @@ class Dashboard extends MY_Controller {
     {
 		parent::__construct();
 		$this->load->model('m_dashboardpost');
+		$this->load->helper("file");
 	}
 	
 	public function index()
@@ -120,6 +121,27 @@ class Dashboard extends MY_Controller {
 			
 		}else{
 			redirect('/dashboard', 'refresh');
+		}
+	}
+
+
+	public function deletepost($post_id = null){
+		$where = array(
+			'post_id' =>$post_id,
+		);
+		$res = $this->m_dashboardpost->getpost($where, 'posts');
+		$filepath = './uploads/';
+		$filename = $filepath.$res[0]->post_img;
+		if (file_exists($filename))
+        {
+            unlink($filename);
+		}
+		
+		$res2 = $this->m_dashboardpost->deletepost($where, 'posts');
+		if($res && $res2){
+			echo "<script> alert('Delete Success!');document.location='" . base_url() . "dashboard/allpost'</script>";
+		}else{
+			$this->load->view('pages/500');
 		}
 	}
 

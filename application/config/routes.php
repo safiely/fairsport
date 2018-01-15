@@ -56,5 +56,6 @@ $route['logout'] = "user/logout";
 $route['user/signup'] = "user/register";
 $route['user/login'] = "user/signin";
 
+$route['dashboard/post/delete/(:num)'] = "dashboard/deletepost/$1";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

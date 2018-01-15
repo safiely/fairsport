@@ -51,10 +51,10 @@
 									<td><?php echo $obj->post_createdby; ?></td>
 									<td><?php echo $obj->post_created; ?></td>
 									<td>
-                                        <a href="<?php echo base_url();$obj->post_id; ?>">
+                                        <a href="<?php echo base_url();?>">
                                             <div class="btn btn-sm btn-warning">Edit</div>
                                         </a>
-                                        <a href="<?php echo base_url();$obj->post_id; ?>">
+                                        <a href="<?php echo base_url();?>dashboard/post/delete/<?php echo $obj->post_id; ?> ">
                                             <div class="btn btn-sm btn-danger">Delete</div>
                                         </a>
                                     </td>

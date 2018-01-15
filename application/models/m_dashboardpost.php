@@ -18,5 +18,16 @@ class m_dashboardpost extends CI_Model {
         $sql = $this->db->query('select * from posts');
 		return $sql;
     }
+
+    public function getpost($where, $table){
+        $res =  $this->db->get_where($table, $where)->result();
+		return $res;
+    }
+
+    public function deletepost($where, $table){
+        $this->db->where($where);
+		$res = $this->db->delete($table);
+		return $res;
+    }
     
 }
