@@ -29,5 +29,11 @@ class m_dashboardpost extends CI_Model {
 		$res = $this->db->delete($table);
 		return $res;
     }
+
+    public function updatepost($where, $data, $table){
+        $this->db->where($where);
+		$res = $this->db->update($table, $data);
+		return $res;
+    }
     
 }

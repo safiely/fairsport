@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
 					<label for="uploadImage"><b>Upload Featured Image</b></label>
-					<input type='file' class="form-control" name='featuredimage' id="uploadImage"  accept="image/gif, image/jpeg, image/png, image/jpg"/>
+					<input type='file' class="form-control" name='featuredimage' id="uploadImage" accept=".gif,.jpg,.png,.jpeg"/>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Post</button>
 			</form>

@@ -67,6 +67,16 @@ tinymce.init({
     },
 });
 </script>
+
+<script type="text/javascript">
+	$('#currentFeaturedImage .remove-image').on('click', function(event) {
+		event.preventDefault();
+		$('#currentFeaturedImage').hide();
+		$('#currentImage').val("");
+		$('#updateFeaturedImage').show();
+    // alert('remove picture: ');
+});
+</script>
 <!-- Custom scripts for this page-->
 <!-- <script src="js/sb-admin-datatables.min.js"></script>
 <script src="js/sb-admin-charts.min.js"></script> -->
