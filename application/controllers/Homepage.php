@@ -24,6 +24,12 @@ class Homepage extends CI_Controller {
 		$this->load->view('homepage/footer');
 	}
 
+	public function about(){
+		$this->load->view('homepage/header');
+		$this->load->view('homepage/about');
+		$this->load->view('homepage/footer');
+	}
+
 	public function detail($id = null){
 		if($id=="" || $id == null){
 			redirect('/', 'refresh');

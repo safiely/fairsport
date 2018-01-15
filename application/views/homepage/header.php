@@ -30,7 +30,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="contact.html">About</a>
+						<a class="nav-link" href="<?php echo base_url()?>about">About</a>
 					</li>
 					<?php if(isset($_SESSION['logged_in'])){ ?>
 					<li class="nav-item">

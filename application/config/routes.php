@@ -57,6 +57,7 @@ $route['user/signup'] = "user/register";
 $route['user/login'] = "user/signin";
 
 $route['post/(:num)'] = "homepage/detail/$1";
+$route['about'] = "homepage/about";
 
 $route['dashboard/post/delete/(:num)'] = "dashboard/deletepost/$1";
 $route['dashboard/post/edit/(:num)'] = "dashboard/editpost/$1";
