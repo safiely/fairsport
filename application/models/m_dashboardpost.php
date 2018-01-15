@@ -19,6 +19,14 @@ class m_dashboardpost extends CI_Model {
 		return $sql;
     }
 
+    public function allpostapproved(){
+        $where = array(
+            'post_approved' => true,
+        );
+        $res =  $this->db->get_where('posts', $where);
+		return $res->result();
+    }
+
     public function getpost($where, $table){
         $res =  $this->db->get_where($table, $where)->result();
 		return $res;
