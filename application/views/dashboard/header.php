@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>SB Admin - Start Bootstrap Template</title>
+	<title>Fairsport - Dashboard</title>
 	<!-- Bootstrap core CSS-->
 	<link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
@@ -49,9 +49,6 @@
 							<a href="<?php echo base_url();?>dashboard/allpost">All Post</a>
                         </li>
                         <?php } ?>
-						<li>
-							<a href="<?php echo base_url();?>dashboard/mypost">My Post</a>
-						</li>
 					</ul>
 				</li>
 				<?php 
@@ -60,12 +57,6 @@
 					<a class="nav-link" href="<?php echo base_url();?>dashboard/users">
 						<i class="fa fa-fw fa-users"></i>
 						<span class="nav-link-text">Users</span>
-					</a>
-				</li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-					<a class="nav-link" href="<?php echo base_url();?>dashboard/comments">
-						<i class="fa fa-fw fa-comments"></i>
-						<span class="nav-link-text">Comments</span>
 					</a>
 				</li>
 				<?php } ?>
