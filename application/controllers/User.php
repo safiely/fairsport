@@ -53,6 +53,7 @@ class User extends CI_Controller {
 				);
 				$res = $this->m_user->register($data, 'users');
 				if($res === true){
+					echo "<script>alert('Success registering new user!');</script>";
 					redirect('/login', 'refresh');
 				}else if($res === 'duplicated'){
 					echo "<script> alert('Already registerd! Please login.');document.location='" . base_url() . "login'</script>";
@@ -74,23 +75,28 @@ class User extends CI_Controller {
 		);
 
 		$res = $this->m_user->signin($where, 'users')->result();
+		if($res){
+			$is_match = $this->pass_verify($password, $res[0]->user_pass);
+			if($is_match){
+				$session_data = array(
+					'id' => $res[0]->user_id,
+					'email' => $res[0]->user_email,
+					'name' => $res[0]->user_name,
+					'avatar' => $res[0]->user_avatar,
+					'type' => $res[0]->user_type,
+				);
 
-		$is_match = $this->pass_verify($password, $res[0]->user_pass);
-		if($is_match){
-			$session_data = array(
-				'id' => $res[0]->user_id,
-				'email' => $res[0]->user_email,
-				'name' => $res[0]->user_name,
-				'avatar' => $res[0]->user_avatar,
-				'type' => $res[0]->user_type,
-			);
-
-			// Add user data in session
-			$this->session->set_userdata('logged_in', $session_data);
-			redirect('/', 'refresh');
+				// Add user data in session
+				$this->session->set_userdata('logged_in', $session_data);
+				redirect('/', 'refresh');
+			}else{
+				echo "<script> alert('Login failed!');document.location='" . base_url() . "login'</script>";
+			}
 		}else{
-			echo "<script> alert('Login failed!');document.location='" . base_url() . "login'</script>";
+			echo "<script>alert('User not found please signup!');</script>";
+			redirect('/signup', 'refresh');
 		}
+		
 	}
 
 	public function logout(){
