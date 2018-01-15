@@ -22,7 +22,7 @@
 						<div class="mr-5">0 Users!</div>
 					<?php } ?>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="<?php echo base_url();?>dashboard/alluser">
 					<span class="float-left">View Details</span>
 					<span class="float-right">
 						<i class="fa fa-angle-right"></i>
@@ -42,7 +42,7 @@
 						<div class="mr-5">0 Posts!</div>
 					<?php } ?>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="<?php echo base_url();?>dashboard/allpost">
 					<span class="float-left">View Details</span>
 					<span class="float-right">
 						<i class="fa fa-angle-right"></i>
