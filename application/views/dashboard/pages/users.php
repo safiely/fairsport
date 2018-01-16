@@ -36,25 +36,35 @@
 								</tr>
 							</tfoot>
 							<tbody>
-							<?php
+								<?php
                                 foreach ($sql->result() as $obj){
                             ?>
-								<tr>
-									<td><?php echo $obj->user_id; ?></td>
-									<td><?php echo $obj->user_name; ?></td>
-									<td><?php echo $obj->user_email; ?></td>
-									<td><?php echo $obj->user_type; ?></td>
-									<td><?php echo $obj->user_created; ?></td>
-									<td>
-										<a href="<?php echo base_url();?>dashboard/user/edit<?php echo $obj->user_id; ?>">
-											<div class="btn btn-sm btn-warning">Edit</div>
-										</a>
-										<a href="<?php echo base_url();?>dashboard/user/delete/<?php echo $obj->user_id; ?>">
-											<div class="btn btn-sm btn-danger">Delete</div>
-										</a>
-									</td>
-								</tr>
-								<?php } ;?>
+									<tr>
+										<td>
+											<?php echo $obj->user_id; ?>
+										</td>
+										<td>
+											<?php echo $obj->user_name; ?>
+										</td>
+										<td>
+											<?php echo $obj->user_email; ?>
+										</td>
+										<td>
+											<?php echo $obj->user_type; ?>
+										</td>
+										<td>
+											<?php echo $obj->user_created; ?>
+										</td>
+										<td>
+											<a href="<?php echo base_url();?>dashboard/user/edit/<?php echo $obj->user_id; ?>">
+												<div class="btn btn-sm btn-warning">Edit</div>
+											</a>
+											<a href="<?php echo base_url();?>dashboard/user/delete/<?php echo $obj->user_id; ?>">
+												<div class="btn btn-sm btn-danger">Delete</div>
+											</a>
+										</td>
+									</tr>
+									<?php } ;?>
 							</tbody>
 						</table>
 					</div>
@@ -64,3 +74,4 @@
 	</div>
 </div>
 <!-- /.container-fluid-->
+

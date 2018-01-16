@@ -148,6 +148,45 @@ class Dashboard extends MY_Controller {
 		
 	}
 
+	public function edituser($user_id = null){
+		if($this->logged_in()){
+			$where = array(
+				'user_id' =>$user_id,
+			);
+			$data['user'] = $this->m_dashboardpost->getuser($where, 'users');
+			// var_dump($data[0]->post_desc);
+			$this->load->view('dashboard/header');
+			$this->load->view('dashboard/pages/edituser', $data);
+			$this->load->view('dashboard/footer');
+		}else{
+			redirect('/dashboard', 'refresh');
+		}
+	}
+
+	public function updateuser(){
+		$id = $this->input->post('id');
+		$name = $this->input->post('name');
+		$email = $this->input->post('email');
+		$type = $this->input->post('type');
+
+		$where = array(
+			'user_id'=>$id,
+		);
+
+		$data = array(
+			'user_name'=>$name,
+			'user_email' => $email,
+			'user_type'=>$type,
+		);
+
+		$res = $this->m_dashboardpost->updateuser($where, $data, 'users');
+		if($res){
+			echo "<script> alert('Success update user.');document.location='" . base_url() . "dashboard/users'</script>";
+		}else{
+			echo "<script> alert('Failed update user.');document.location='" . base_url() . "dashboard/users'</script>";
+		}
+	}
+
 	public function editpost($post_id = null){
 		if($this->logged_in()){
 			$where = array(
@@ -261,7 +300,6 @@ class Dashboard extends MY_Controller {
 			echo "<script> alert('Success update post.');document.location='" . base_url() . "dashboard/allpost'</script>";
 		}else{
 			echo "<script> alert('Failed update post.');document.location='" . base_url() . "dashboard/allpost'</script>";
-
 		}
 	}
 

@@ -29,6 +29,18 @@ class m_dashboardpost extends CI_Model {
 		return $res;
     }
 
+    public function getuser($where, $table){
+        $res =  $this->db->get_where($table, $where)->result();
+		return $res;
+    }
+
+    public function updateuser($where, $data, $table){
+        $this->db->where($where);
+		$res = $this->db->update($table, $data);
+		return $res;
+    }
+    
+
     public function allpostapproved(){
         $where = array(
             'post_approved' => true,
