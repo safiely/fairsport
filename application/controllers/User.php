@@ -82,7 +82,6 @@ class User extends CI_Controller {
 					'id' => $res[0]->user_id,
 					'email' => $res[0]->user_email,
 					'name' => $res[0]->user_name,
-					'avatar' => $res[0]->user_avatar,
 					'type' => $res[0]->user_type,
 				);
 

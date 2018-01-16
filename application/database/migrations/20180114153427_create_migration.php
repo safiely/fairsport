@@ -68,11 +68,6 @@ class Migration_Create_Migration extends CI_Migration {
                                 'constraint' => '100',
                                 'null' => FALSE,
                         ),
-                        'user_avatar' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '200',
-                                'null' => TRUE,
-                        ),
                         'user_type' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
