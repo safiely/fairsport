@@ -130,6 +130,24 @@ class Dashboard extends MY_Controller {
 		
 	}
 
+	public function deleteuser($user_id = null){
+		if($this->logged_in()){
+			$where = array(
+				'user_id' =>$user_id,
+			);
+			
+			$res = $this->m_dashboardpost->deleteuser($where, 'users');
+			if($res){
+				echo "<script> alert('Delete Success!');document.location='" . base_url() . "dashboard/users'</script>";
+			}else{
+				$this->load->view('pages/500');
+			}
+		}else{
+			redirect('/dashboard', 'refresh');
+		}
+		
+	}
+
 	public function editpost($post_id = null){
 		if($this->logged_in()){
 			$where = array(

@@ -49,7 +49,7 @@
 										<a href="<?php echo base_url();?>dashboard/user/edit<?php echo $obj->user_id; ?>">
 											<div class="btn btn-sm btn-warning">Edit</div>
 										</a>
-										<a href="<?php echo base_url();?>dashboard/user/delete<?php echo $obj->user_id; ?>">
+										<a href="<?php echo base_url();?>dashboard/user/delete/<?php echo $obj->user_id; ?>">
 											<div class="btn btn-sm btn-danger">Delete</div>
 										</a>
 									</td>
@@ -62,6 +62,5 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 <!-- /.container-fluid-->

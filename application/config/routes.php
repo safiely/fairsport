@@ -62,5 +62,7 @@ $route['about'] = "homepage/about";
 $route['dashboard/post/delete/(:num)'] = "dashboard/deletepost/$1";
 $route['dashboard/post/edit/(:num)'] = "dashboard/editpost/$1";
 
+$route['dashboard/user/delete/(:num)'] = "dashboard/deleteuser/$1";
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -23,6 +23,12 @@ class m_dashboardpost extends CI_Model {
 		return $sql;
     }
 
+    public function deleteuser($where, $table){
+        $this->db->where($where);
+		$res = $this->db->delete($table);
+		return $res;
+    }
+
     public function allpostapproved(){
         $where = array(
             'post_approved' => true,
