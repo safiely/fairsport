@@ -18,6 +18,11 @@ class m_dashboardpost extends CI_Model {
 		return $sql;
     }
 
+    public function alluser(){
+        $sql = $this->db->query('select user_id, user_name, user_email, user_type, user_created from users');
+		return $sql;
+    }
+
     public function allpostapproved(){
         $where = array(
             'post_approved' => true,

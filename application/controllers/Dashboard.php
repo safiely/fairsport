@@ -44,35 +44,18 @@ class Dashboard extends MY_Controller {
 		}
 	}
 
-	public function mypost(){
-		if($this->logged_in()){
-			$this->load->view('dashboard/header');
-			$this->load->view('dashboard/pages/mypost');
-			$this->load->view('dashboard/footer');
-		}else{
-			redirect('/login', 'refresh');
-		}
-	}
 
 	public function users(){
 		if($this->logged_in()){
+			$data['sql'] = $this->m_dashboardpost->alluser();
 			$this->load->view('dashboard/header');
-			$this->load->view('dashboard/pages/users');
+			$this->load->view('dashboard/pages/users', $data);
 			$this->load->view('dashboard/footer');
 		}else{
 			redirect('/login', 'refresh');
 		}
 	}
 
-	public function comments(){
-		if($this->logged_in()){
-			$this->load->view('dashboard/header');
-			$this->load->view('dashboard/pages/comments');
-			$this->load->view('dashboard/footer');
-		}else{
-			redirect('/login', 'refresh');
-		}
-	}
 
 	public function addpost(){
 		if($this->logged_in()){

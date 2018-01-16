@@ -17,54 +17,48 @@
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
+									<th>Id</th>
 									<th>Name</th>
-									<th>Position</th>
-									<th>Office</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>Salary</th>
+									<th>Email</th>
+									<th>Type</th>
+									<th>Created</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
+									<th>Id</th>
 									<th>Name</th>
-									<th>Position</th>
-									<th>Office</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>Salary</th>
+									<th>Email</th>
+									<th>Type</th>
+									<th>Created</th>
+									<th>Action</th>
 								</tr>
 							</tfoot>
 							<tbody>
+							<?php
+                                foreach ($sql->result() as $obj){
+                            ?>
 								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>Edinburgh</td>
-									<td>61</td>
-									<td>2011/04/25</td>
-									<td>$320,800</td>
+									<td><?php echo $obj->user_id; ?></td>
+									<td><?php echo $obj->user_name; ?></td>
+									<td><?php echo $obj->user_email; ?></td>
+									<td><?php echo $obj->user_type; ?></td>
+									<td><?php echo $obj->user_created; ?></td>
+									<td>
+										<a href="<?php echo base_url();?>dashboard/user/edit<?php echo $obj->user_id; ?>">
+											<div class="btn btn-sm btn-warning">Edit</div>
+										</a>
+										<a href="<?php echo base_url();?>dashboard/user/delete<?php echo $obj->user_id; ?>">
+											<div class="btn btn-sm btn-danger">Delete</div>
+										</a>
+									</td>
 								</tr>
-								<tr>
-									<td>Garrett Winters</td>
-									<td>Accountant</td>
-									<td>Tokyo</td>
-									<td>63</td>
-									<td>2011/07/25</td>
-									<td>$170,750</td>
-								</tr>
-								<tr>
-									<td>Ashton Cox</td>
-									<td>Junior Technical Author</td>
-									<td>San Francisco</td>
-									<td>66</td>
-									<td>2009/01/12</td>
-									<td>$86,000</td>
-								</tr>
+								<?php } ;?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 			</div>
 		</div>
 	</div>
