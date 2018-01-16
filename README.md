@@ -5,6 +5,10 @@
 
 Fairsport is a news portal build with Codeigniter and MySQL focused on how CRUD work in real scenario.
 
+## Database Diagram
+![Database Diagram](./assets/img/fairsport-db-diagram.png "Fairsport Database Diagram")
+
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -55,12 +59,17 @@ To registering new user visit this local url
     localhost/fairsport/signup
 ```
 
-## Authors
+## Author
 Fuad Aji Pratomo
 
 ## License
 This project is licensed under the Apache-2.0    License - see the [LICENSE.md](https://github.com/fuadajip/fairsport/blob/master/LICENSE) file for details
 
+
+## Output
+![homepage output](./assets/img/home.png "Fairsport Home")
+
+![dashboard output](./assets/img/dashboard.png "Fairsport Dashboard")
 ---
 
 
